@@ -1,4 +1,4 @@
-* Requires `apt-get install bison clang flex libelf-dev llvm`
+* Requires `apt-get install make gcc libssl-dev bc libcap-dev gcc-multilib libncurses5-dev pkg-config libmnl-dev graphviz bison clang flex libelf-dev llvm`
 * Tested on 5.6
 * `make defconfig`
 * `make` (probably not needed)

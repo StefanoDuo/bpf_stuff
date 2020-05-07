@@ -1,10 +1,15 @@
-* Requires `apt-get install make gcc libssl-dev bc libcap-dev gcc-multilib libncurses5-dev pkg-config libmnl-dev graphviz bison clang flex libelf-dev llvm`
-* Tested on 5.6
+* Requirements `make gcc libssl-dev bc libcap-dev gcc-multilib libncurses5-dev pkg-config libmnl-dev graphviz bison clang flex libelf-dev llvm` can be installed through `apt-get install`.
+* Tested on linux-5.6
+
+# Setup environment
+* `cd linux_kernel_source_code`
 * `make defconfig`
 * `make headers_install`
 * `cd samples/bpf`
 * Modify Makefile to include your programs
 * `make` compiles all bpf programs
+
+# Commands which might come in handy
 * To remove an xdp program attached to an interface `sudo ip link set dev if_name xdp off`
 * `sudo ./xdp_drop lo 127.0.0.1` and `ping 127.0.0.1` to check if everything works
 * `ip netns add net1`, `ip netns add net2` to create 2 network namespaces

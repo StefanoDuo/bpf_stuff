@@ -42,8 +42,6 @@ static void int_exit(int sig)
 	exit(0);
 }
 
-/* simple per-protocol drop counter
- */
 static void poll_stats(int map_fd, int interval, __be32 key)
 {
 	unsigned int nr_cpus = bpf_num_possible_cpus();
@@ -139,14 +137,6 @@ int main(int argc, char **argv)
 		printf("link set xdp fd failed\n");
 		return 1;
 	}
-
-	err = bpf_obj_get_info_by_fd(prog_fd, &info, &info_len);
-	if (err) {
-		printf("can't get prog info - %s\n", strerror(errno));
-		return err;
-	}
-	prog_id = info.id;
-
 
 	err = bpf_map_update_elem(map_fd, &daddr, &values, BPF_ANY);
 	if (err == -1) {
